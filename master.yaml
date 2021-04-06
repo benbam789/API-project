@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   version: 1.0-oas3
   title: Heart Failure Prediction
-  description: >-A way to input data into a model for predicting the  mortality caused by Heart Failure.
+  description: A way to input data into a model for predicting the  mortality caused by Heart Failure.
   termsOfService: 'http://swagger.io/terms/'
   contact:
     name: Benjamin Bamidele
@@ -13,24 +13,24 @@ paths:
     get:
       tags:
         -  LogClassify
-      operationId: model_prediction.heartfailure_pred
-      description: >-
+      operationId: my_python_dir.model_prediction.heartfailure
+      description: 
         This is the data input from the user that is sent as an array
       parameters:
         -  in: path
-          name: arg1
-          required: true
-          schema:
-            type: array
-            items:
-              type: number
-            minItems: 1
-          style: simple
-          explode: true
+           name: arg1
+           required: true
+           schema:
+             type: array
+             items:
+               type: number
+             minItems: 1
+           style: simple
+           explode: true
         -  in: query
-          name: metadata
-          schema:
-            type: boolean
+           name: metadata
+           schema:
+             type: boolean
       responses:
         '200':
           description: 'Returned result of predition to user as array'
@@ -44,6 +44,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/LogClassify'
+  /model/{filename}:
+    get:
+      tags:
+        - Download
+      summary: Download a file
+      operationId: my_python_dir.model_prediciton.download
+      responses:
+        '405':
+          description: Invalid Input      
 servers:
   -  url: 'http://localhost:8080/'
 components:
