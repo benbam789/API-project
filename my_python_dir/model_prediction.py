@@ -2,7 +2,7 @@ from sklearn import datasets
 from joblib import load
 import numpy as np
 import json
-import flask import send_file
+from flask import send_file
 import os
 
 #load the model

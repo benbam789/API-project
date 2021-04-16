@@ -9,9 +9,9 @@ import os
 
 my_model = load('log_model.pkl')
 
-def download(filename):
-    path = os.path.join(UPLOAD_FOLDER, filename)
-    return send_file(path, as_attachment=True)
+#def download(filename):
+ #   path = os.path.join(UPLOAD_FOLDER, filename)
+  #  return send_file(path, as_attachment=True)
 
 def heartfailure(arg1):
     dummy = np.array(arg1)
