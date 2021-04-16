@@ -44,6 +44,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/LogClassify'
+  /model/{filename}:
+    get:
+      tags:
+        - Download
+      summary: Download a file
+      operationId: my_python_dir.model_prediciton.download
+      responses:
+        '405':
+          description: Invalid Input      
 servers:
   -  url: 'http://localhost:8080/'
 components:
