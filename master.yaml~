@@ -43,16 +43,32 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/LogClassify'
-  /model/{filename}:
+                $ref: '#/components/schemas/LogClassify'    
+  /file/<filename>:
     get:
       tags:
-        - Download
-      summary: Download a file
-      operationId: my_python_dir.model_prediciton.download
+        - Upload
+      summary: Upload a file
+      operationId: my_python_dir.model_prediction.upload
+      parameters:
+        - name: filename
+          in: query
+          description: filename to be uploaded
+          required: true
+          schema:
+            type: string 
       responses:
-        '405':
-          description: Invalid Input      
+        '500':
+          description: Invalid input
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
 servers:
   -  url: 'http://localhost:8080/'
 components:
